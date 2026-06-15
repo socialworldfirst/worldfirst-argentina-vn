@@ -122,6 +122,16 @@
 
   .chat{position:fixed;right:22px;bottom:22px;width:56px;height:56px;border-radius:50%;background:#ff0051;box-shadow:0 8px 24px rgba(255,0,81,.4);z-index:50}
   @media(max-width:900px){.hero-in,.grid3,.sblock{grid-template-columns:1fr}.hero-l h1{font-size:38px}.fcols{grid-template-columns:1fr 1fr}}
+  /* region switcher */
+  .regionswitch{position:relative}
+  .globe{cursor:pointer}
+  .regionmenu{position:absolute;right:0;top:40px;background:#fff;border:1px solid #e6e8eb;border-radius:12px;box-shadow:0 12px 34px rgba(31,35,35,.16);padding:6px;min-width:196px;z-index:60;display:none}
+  .regionmenu.open{display:block}
+  .regionmenu .rhead{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#9aa1a1;font-weight:700;padding:8px 12px 6px}
+  .regionmenu button{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;text-align:left;font-family:'Poppins',sans-serif;font-size:14px;color:#1f2323;padding:9px 12px;border-radius:8px;cursor:pointer}
+  .regionmenu button:hover{background:#f7f5f7}
+  .regionmenu button.active{font-weight:600}
+  .regionmenu button.active::after{content:"";width:7px;height:7px;border-radius:50%;background:#ff0051}
 </style>
 </head>
 <body>
@@ -132,7 +142,15 @@
     <img class="logo" src="https://socialworldfirst.github.io/worldfirst-argentina-sg/assets/logo.svg" alt="WorldFirst">
     <div class="mid"><a href="#">Business</a><a href="#">Enterprise</a><a href="#">About Us</a></div>
     <div class="right">
-      <div class="globe"><img src="https://socialworldfirst.github.io/worldfirst-argentina-sg/assets/globe.webp" alt=""></div>
+      <div class="regionswitch">
+        <div class="globe" id="globeBtn"><img src="https://socialworldfirst.github.io/worldfirst-argentina-sg/assets/globe.webp" alt="Choose region"></div>
+        <div class="regionmenu" id="regionMenu">
+          <div class="rhead">Choose your market</div>
+          <button data-region-tab="sg">Singapore</button>
+          <button data-region-tab="vn">Vietnam</button>
+          <button data-region-tab="sea">Southeast Asia</button>
+        </div>
+      </div>
       <a class="login" href="#">Login</a><a class="signup" href="#">Sign Up</a>
     </div>
   </div>
@@ -142,12 +160,12 @@
     <div class="wrap hero-in">
       <div class="hero-l">
         <h1>Win a signed <span class="rose">Argentina</span> team jersey</h1>
-        <p class="sub">Spend on your World Card, new or existing, during the promotion for your chance to win a signed Argentina national team jersey, signed by the squad including the captain.</p>
+        <p class="sub">Spend on your World Card, new or existing, for your chance to win a signed Argentina team jersey.</p>
         <div class="cta-row">
           <a class="btn primary" href="#" style="font-size:16px;padding:14px 30px">Get a World Card</a>
-          <a class="seerules" href="rules.html">See full rules &rarr;</a>
+          <a class="seerules rules-link" href="rules.html">See full rules &rarr;</a>
         </div>
-        <p class="micro">Open to eligible business customers in <span class="tbd">Vietnam</span>, new or existing World Card holders. Reach <span class="tbd">USD 1,500</span> in eligible World Card spend between <span class="tbd">16 June 2026</span> and <span class="tbd">15 August 2026 (UK time)</span>. One entry per customer.</p>
+        <p class="micro">Open to eligible business customers in <span class="tbd" data-rv="market">Vietnam</span>, new or existing World Card holders. Reach <span class="tbd" data-rv="threshold">USD 1,500</span> in eligible World Card spend between <span class="tbd">18 June 2026</span> and <span class="tbd">17 August 2026</span>. One entry per customer.</p>
       </div>
       <div class="hero-r">
         <div class="photopanel">
@@ -163,7 +181,7 @@
     <h2 class="sechead"><span class="rose">How</span> to enter</h2>
     <div class="grid3">
       <div class="fcard"><div class="step">STEP 1</div><h3>Have a World Card</h3><p>New or existing holders both qualify. Open one if you don't have it yet, it's free.</p><div class="arrow"></div></div>
-      <div class="fcard"><div class="step">STEP 2</div><h3>Reach the eligible spend</h3><p>Spend <span class="tbd">USD 1,500</span> or more in total on your World Card during the promotion.</p><div class="arrow"></div></div>
+      <div class="fcard"><div class="step">STEP 2</div><h3>Reach the eligible spend</h3><p>Spend <span class="tbd" data-rv="threshold">USD 1,500</span> or more in total on your World Card during the promotion.</p><div class="arrow"></div></div>
       <div class="fcard"><div class="step">STEP 3</div><h3>You're entered into the draw</h3><p>No further action. One winner is drawn at random in your market on the draw date.</p><div class="arrow"></div></div>
     </div>
   </section>
@@ -175,9 +193,9 @@
       <div class="txt">
         <div class="eyebrow">The prize</div>
         <h2>Three signed Argentina national team jerseys</h2>
-        <p>Three signed jerseys across the participating markets, one winner drawn in Vietnam, signed by the squad including the captain, drawn at random from all eligible entrants. Draw date <span class="tbd">31 August 2026</span>.</p>
+        <p>Three signed Argentina jerseys across the campaign, signed by the squad including the captain, drawn at random from all eligible entrants. Draw date <span class="tbd">31 August 2026</span>.</p>
         <p>The prize is the signed jersey only. No cash alternative.</p>
-        <a class="more" href="rules.html">See full rules</a>
+        <a class="more rules-link" href="rules.html">See full rules</a>
       </div>
     </div>
 
@@ -190,7 +208,7 @@
           <div><span class="ck"></span>You reach the eligible spend in the promotion window</div>
           <div><span class="ck"></span>Your account is active and in good standing</div>
         </div>
-        <a class="more" href="rules.html">Read the full terms</a>
+        <a class="more rules-link" href="rules.html">Read the full terms</a>
       </div>
       <div class="vis"><div class="photovis"><img src="https://socialworldfirst.github.io/worldfirst-argentina-sg/assets/approved_2.png" alt="Argentina national team in official kit"></div></div>
     </div>
@@ -200,7 +218,7 @@
   <section class="fcta">
     <h2>Open a card. Make a payment. Win a signed Argentina jersey.</h2>
     <p>The same World Card that saves on every business expense could win you a signed Argentina national team jersey, signed by the squad including the captain.</p>
-    <div class="row"><a class="g" href="#">Get a World Card</a><a class="c" href="rules.html">See full rules</a></div>
+    <div class="row"><a class="g" href="#">Get a World Card</a><a class="c rules-link" href="rules.html">See full rules</a></div>
   </section>
 
   <!-- FOOTER -->
@@ -214,11 +232,37 @@
         <div><h4>Company</h4><a>About WorldFirst</a><a>Why WorldFirst</a><a>Contact Us</a><a>Refer and Earn</a></div>
         <div class="news"><h4>Sign up to our newsletter</h4><div class="sub"><input placeholder="Enter your email"><button>Subscribe</button></div></div>
       </div>
-      <div class="legal">WorldFirst is part of the Ant International / Alipay+ ecosystem, an Official Regional Sponsor of the Argentine National Football Team. The AFA crest, Argentina national team imagery and related marks are used under licence via Ant International. Promotion open to eligible business World Card holders (new or existing) in Vietnam, <span class="tbd">16 June 2026</span> to <span class="tbd">15 August 2026 (UK time)</span>. Prize is a signed official Argentina national team jersey, hand-signed by the squad including the captain; no cash alternative. Individual players are not named and no individual-player endorsement is implied.</div>
-      <div class="fbar"><span>&copy; 2026, WorldFirst. Operated by <span class="tbd">World First (Vietnam entity, TBC)</span>.</span><span>&#127760; Global</span></div>
+      <div class="legal">WorldFirst is part of the Ant International / Alipay+ ecosystem, an Official Regional Sponsor of the Argentine National Football Team. The AFA crest, Argentina national team imagery and related marks are used under licence via Ant International. Promotion open to eligible business World Card holders (new or existing) in <span class="tbd" data-rv="market">Vietnam</span>, <span class="tbd">18 June 2026</span> to <span class="tbd">17 August 2026</span>. Prize is a signed official Argentina national team jersey, hand-signed by the squad including the captain; no cash alternative. Individual players are not named and no individual-player endorsement is implied.</div>
+      <div class="fbar"><span>&copy; 2026, WorldFirst. Operated by World First Asia Pte. Ltd., Singapore.</span><span>&#127760; Global</span></div>
     </div>
   </footer>
 
   <div class="chat"></div>
+<script>
+const RBASE="https://socialworldfirst.github.io";
+const REGIONS={
+  sg:{market:"Singapore",threshold:"USD 3,000",rules:RBASE+"/worldfirst-argentina-sg/rules.html"},
+  vn:{market:"Vietnam",threshold:"USD 1,500",rules:RBASE+"/worldfirst-argentina-vn/rules.html"},
+  sea:{market:"Southeast Asia",threshold:"USD 500",rules:RBASE+"/worldfirst-argentina-sea/rules.html"}
+};
+const DEFAULT_REGION="vn";
+function setRegion(k){
+  const r=REGIONS[k]; if(!r)return;
+  document.querySelectorAll('[data-rv="market"]').forEach(e=>e.textContent=r.market);
+  document.querySelectorAll('[data-rv="threshold"]').forEach(e=>e.textContent=r.threshold);
+  document.querySelectorAll('a.rules-link').forEach(a=>a.setAttribute('href',r.rules));
+  document.querySelectorAll('[data-region-tab]').forEach(b=>b.classList.toggle('active',b.dataset.regionTab===k));
+}
+(function(){
+  const g=document.getElementById('globeBtn'), m=document.getElementById('regionMenu');
+  if(g&&m){
+    g.addEventListener('click',e=>{e.stopPropagation();m.classList.toggle('open');});
+    document.addEventListener('click',()=>m.classList.remove('open'));
+    m.addEventListener('click',e=>e.stopPropagation());
+    m.querySelectorAll('[data-region-tab]').forEach(b=>b.addEventListener('click',()=>{setRegion(b.dataset.regionTab);m.classList.remove('open');}));
+  }
+  setRegion(DEFAULT_REGION);
+})();
+</script>
 </body>
 </html>
